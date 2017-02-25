@@ -28,3 +28,7 @@ elif [[ $(OS_VER) == centos ]]
    yum -y install ansible
    ## TODO
 fi
+cp -a /vagrant/pre-req.yml /home/vagrant
+chown -R vagrant:vagrant /home/vagrant
+
+ansible-galaxy install -r /home/vagrant/pre-req.yml
