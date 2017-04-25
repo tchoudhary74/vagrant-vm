@@ -24,7 +24,12 @@ if [[ $(OS_VER) == ubuntu ]]
     apt-get -y install ansible
 elif [[ $(OS_VER) == centos ]]
  then
-   yum -y install epel-release
-   yum -y install ansible
+   sudo yum -y install epel-release
+   sudo yum -y install ansible
+   sudo yum -y install unzip
+   cd /tmp/
+   curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+   unzip awscli-bundle.zip
+   sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/bin/aws
    ## TODO
 fi
